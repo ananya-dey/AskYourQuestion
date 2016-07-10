@@ -34,20 +34,20 @@ app.controller('QusListController', function($scope,$http){
 		{return;}
 		
 		$scope.QuestionList.push(
-			{id:newid, qus1:$scope.TextQuestion}
+			{id:newid, qus:$scope.TextQuestion}
 		);	
 		$scope.TextQuestion = "";	
 	}
 	
 	//fetching json data
 	$http.get('questions.json').success(function(data) {
-        	$scope.questions = data;
-        });
-    
-    	//for vote
-	$scope.addQusVote = function (id, count) {
+        	$scope.QuestionList = data;
+    	});
+
+     	//for vote
+	 $scope.addQusVote = function (id, count) {
        
-	};
+    	};
   	
 });
 
@@ -55,11 +55,11 @@ app.controller('QusListController', function($scope,$http){
 app.controller('QusDetailController',function($scope,$routeParams,$http){
 
 	//fetching json data
-	$scope.qus = $routeParams.questionTitle;
+	$scope.id = $routeParams.questionTitle;
 
 	$http.get('questions.json').success(function(data) {
 	    $scope.x = data.filter(function(entry){
-	      return entry.qus === $scope.qus;
+	      return entry.id == $scope.id;
 	    })[0];       
 	});
 
@@ -95,11 +95,10 @@ app.controller('QusDetailController',function($scope,$routeParams,$http){
 		);
 		$scope.TextAnswer = "";
 	}
-	
-	//for vote
-	$scope.addAnsVote = function (id, count) {
+	 //for vote
+	 $scope.addAnsVote = function (id, count) {
        
-    	};
+    };
 	
 });
 
