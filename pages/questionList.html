@@ -23,14 +23,18 @@
 			</thead>
 			<tbody id="pages">
 				<!--Here datas are fetched from json-->
-				<tr ng-repeat="x in questions">
-					<td>{{x.id}}</td>
-					<td><a href="#/{{x.qus}}">{{x.qus}}</a></td>
-				</tr>
-				<!--Here datas are added by user-->
 				<tr ng-repeat="x in QuestionList">
+					<td>
+						<i title="Up Votes" ng-click="count=count+1; addQusVote(x.id, count)" 
+							ng-init="count=0" class="fa fa-sort-asc fa-3x" style='cursor:pointer'>
+						</i>
+						<br/><strong id="vote">{{count}}</strong><br/>
+						<i title="Down Votes" ng-click="count=count-1; addQusVote(x.id, count)" 
+							ng-init="count=0" class="fa fa-sort-desc fa-3x" style='cursor:pointer'>
+						</i>
+					</td>
 					<td>{{x.id}}</td>
-					<td><a href="#/{{x.qus1}}">{{x.qus1}}</a></td>
+					<td><a href="#/{{x.id}}">{{x.qus}}</a></td>
 				</tr>					
 			</tbody>
 		</table>		 
