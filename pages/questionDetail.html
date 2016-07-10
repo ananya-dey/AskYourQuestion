@@ -41,8 +41,18 @@
 	<div>
 		<table>
 			<tr ng-repeat="x in ShowAnswer">
-				<td>{{x.id}}. {{x.ans}}</td>
-			</tr>			
+				<td>
+					<i title="Up Votes" ng-click="count=count+1; addAnsVote(x.id, count)" 
+						ng-init="count=0" class="fa fa-sort-asc fa-3x" style='cursor:pointer'>
+					</i>
+					<br/><strong id="vote">{{count}}</strong><br/>
+					<i title="Down Votes" ng-click="count=count-1; addAnsVote(x.id, count)" 
+						ng-init="count=0" class="fa fa-sort-desc fa-3x" style='cursor:pointer'>
+					</i>
+				</td>
+				<td>{{x.id}}.</td> 
+				<td>{{x.ans}}</td>
+			</tr>				
 		</table>
 	</div>
 	<div></br>
