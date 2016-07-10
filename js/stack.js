@@ -41,8 +41,13 @@ app.controller('QusListController', function($scope,$http){
 	
 	//fetching json data
 	$http.get('questions.json').success(function(data) {
-        $scope.questions = data;
-    });
+        	$scope.questions = data;
+        });
+    
+    	//for vote
+	$scope.addQusVote = function (id, count) {
+       
+	};
   	
 });
 
@@ -90,6 +95,11 @@ app.controller('QusDetailController',function($scope,$routeParams,$http){
 		);
 		$scope.TextAnswer = "";
 	}
+	
+	//for vote
+	$scope.addAnsVote = function (id, count) {
+       
+    	};
 	
 });
 
